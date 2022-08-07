@@ -221,7 +221,7 @@
         <div id="ThankyouBox" style="background-color: #000000; border: 2px solid var(--p); width:90%;height:90%;">
             <div id="HeaderBox" style="height: 70px;margin:20px">
                 <div class="d-flex justify-content-between ">
-                    <div class="p-2 align-self-center" style="color:var(--p);font-size: 30px;font-weight: 600;letter-spacing: 10px;">鯨醬的感謝牆</div>
+                    <div id="Title" class="p-2 align-self-center" style="color:var(--p);font-size: 30px;font-weight: 600;letter-spacing: 10px;">鯨醬的感謝牆</div>
                     <div class="p-2 align-self-center">
                         <div id="InfoBtn" data-bs-toggle="modal" data-bs-target="#InfoModal" class="btn btn-darkGreen"><i class="fa-solid fa-question"></i></div>
                         <div id="PayMeCodeBtn" data-bs-toggle="modal" data-bs-target="#PayMeCodeModal" class="btn btn-darkGreen"><i class="fa-solid fa-money-bill"></i></div>
@@ -257,6 +257,8 @@
 
     var InfoBox_height = $("#ShowInfoBox").height()
     var CurrentBox_height = 0;
+
+    resize();
 
     $("#PayMeCodeBtn").click(function() {
         $('#PayMeCodeModal').modal('toggle')
@@ -311,6 +313,14 @@
         InfoBox_height = $("#ShowInfoBox").height()
 
         adjustBox()
+
+        var window_width = $(window).width()
+        if (window_width < 475) {
+            $("#Title").html("感謝牆");
+        } else {
+            $("#Title").html("鯨醬的感謝牆");
+        }
+
     }
 
     function adjustBox() {

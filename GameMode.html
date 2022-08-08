@@ -1,0 +1,446 @@
+<html lang="en">
+
+<head>
+    <!-- essential -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="Data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300&family=Source+Code+Pro&display=swap');
+     :root {
+        --p: #e74cfb;
+    }
+    
+    #FullScreen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .align_center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .align_Hcenter {
+        display: flex;
+        align-items: center;
+    }
+    
+    .col {
+        text-align: left;
+    }
+    
+    .row {
+        margin-top: 10px;
+    }
+    
+    #ThankyouBox {
+        background-image: url("image/GameBG.png");
+        background-size: 1920px 1920px;
+        background-position: center;
+    }
+    
+    body {
+        font-family: 'Source Code Pro', 'Noto Sans HK';
+    }
+    
+    .TKMsg {
+        border: 2px solid var(--p);
+        background-color: rgba(0, 0, 0, 0.672);
+        color: var(--p);
+        padding: 15px
+    }
+    
+    .btn-darkGreen {
+        border: 2px solid var(--p);
+        background-color: rgba(0, 0, 0, 0.672);
+        border-radius: 2px;
+        color: var(--p);
+        width: 50px;
+    }
+    
+    .btn-darkGreen:hover {
+        border: 2px solid var(--p);
+        background-color: var(--p);
+        color: var(--p);
+    }
+    
+    .modal-content {
+        border-radius: 2px;
+        background: black;
+        border: 2px solid var(--p);
+        color: var(--p);
+        font-weight: 600;
+    }
+    
+    .modal-header {
+        border-bottom: 2px solid var(--p);
+    }
+    
+    .modal-footer {
+        border-top: 2px solid var(--p);
+    }
+</style>
+
+<style>
+    div.Tono {
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        z-index: 100;
+    }
+</style>
+
+<body>
+
+    <!-- PayMe Modal -->
+    <div class="modal fade" id="MenuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="btn btn-darkGreen diff" style="width: 100%;" data-bs-dismiss="modal">Easy</div>
+                        </div>
+                        <div class="row">
+                            <div class="btn btn-darkGreen diff" style="width: 100%;" data-bs-dismiss="modal">Normal</div>
+                        </div>
+                        <div class="row">
+                            <div class="btn btn-darkGreen diff" style="width: 100%;" data-bs-dismiss="modal">Difficult</div>
+                        </div>
+                        <div class="row">
+                            <div class="btn btn-darkGreen diff" style="width: 100%;" data-bs-dismiss="modal">Tono</div>
+                        </div>
+
+                        <div class="row">
+                            <div id="RestartGame" class="btn btn-darkGreen Restart" data-bs-dismiss="modal"><i class="fa-solid fa-arrow-rotate-right"></i></div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer ">
+                    <button type="button" class="btn btn-darkGreen" style="width:auto" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div class="modal fade" id="InfoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Points</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col ">
+                                <img style="width:50px;height: 50px;" src="image/DogRush殿.png" alt="">
+                            </div>
+                            <div class="col align_Hcenter">Points +1</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img style="width:50px;height: 50px;" src="image/逆風殿.png" alt="">
+                            </div>
+                            <div class="col align_Hcenter">Points -1</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img style="width:50px;height: 50px;" src="image/POG.png" alt="">
+                            </div>
+                            <div class="col align_Hcenter">Points -5</div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer ">
+                    <button type="button" class="btn btn-darkGreen" style="width:auto" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="FullScreen" style="background-color: #000000;width: 100%;height: 100%;">
+        <div id="ThankyouBox" style="background-color: #000000; border: 2px solid var(--p); width:90%;height:90%;">
+            <div id="HeaderBox" style="height: 70px;margin:20px">
+                <div class="d-flex justify-content-between ">
+                    <div id="PointDisplay" class="p-2 align-self-center" style="color:var(--p);font-size: 30px;font-weight: 600;letter-spacing: 10px;">
+
+                    </div>
+                    <div class="p-2 align-self-center">
+                        <div id="InfoBtn" data-bs-toggle="modal" data-bs-target="#InfoModal" class="btn btn-darkGreen"><i class="fa-solid fa-question"></i></div>
+                        <div id="MenuBtn" data-bs-toggle="modal" data-bs-target="#MenuModal" class="btn btn-darkGreen"><i class="fa-solid fa-bars"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ShowInfoBox" style="height: 80%;margin:20px">
+                <div id="ShowInfoBoxContent" class="container-fluid text-center">
+
+                </div>
+            </div>
+            <!--
+            <div id="SearchingBox" style="height: 50px;margin:20px">
+
+            </div>
+            -->
+        </div>
+
+    </div>
+</body>
+
+
+<script>
+    var data = {
+        "Mode": [{
+                "Difficulty": "Easy",
+                "Wind": 4,
+                "NonWind": 4,
+                "Pog": 2,
+                "Speed": 0.3,
+            }, {
+                "Difficulty": "Normal",
+                "Wind": 4,
+                "NonWind": 5,
+                "Pog": 2,
+                "Speed": 0.5,
+            }, {
+                "Difficulty": "Difficult",
+                "Wind": 4,
+                "NonWind": 6,
+                "Pog": 3,
+                "Speed": 0.7,
+            }, {
+                "Difficulty": "Tono",
+                "Wind": 6,
+                "NonWind": 2,
+                "Pog": 1,
+                "Speed": 0.1,
+            }
+
+        ],
+        "Points": {
+            "Wind": 1,
+            "NonWind": -1,
+            "Pog": -5,
+        }
+    }
+
+
+    var TonoCounter = 1;
+    var speedModifier = 0.3;
+
+    var PointCounter = 0;
+
+    $("#RestartGame").click(function() {
+        PointCounter = 0;
+        $("#PointDisplay").html(PointCounter)
+    })
+
+    function UpdatePoint(x) {
+        console.log("Click")
+
+        var TonoType = $(x).data('type')
+
+        switch (TonoType) {
+            case 'Wind':
+                PointCounter += data.Points.Wind
+                break;
+            case 'NonWind':
+                PointCounter += data.Points.NonWind
+                break;
+            case 'Pog':
+                PointCounter += data.Points.Pog
+                break;
+
+        }
+
+        if (PointCounter < 0) {
+            PointCounter = 0;
+        }
+
+        $("#PointDisplay").html(PointCounter)
+    }
+
+    function CreateWindTono() {
+        var HTMLContent =
+            "<div id='Tono" + TonoCounter + "' class='Wind Tono' data-type='Wind' onclick='UpdatePoint(this)'>" +
+            '<img src="image/DogRush殿.png" alt="">' +
+            '</div>';
+
+        $("body").append(HTMLContent)
+
+        TonoCounter++;
+    }
+
+    function CreateNonWindTono() {
+        var HTMLContent =
+            "<div id='Tono" + TonoCounter + "' class='NonWind Tono' data-type='NonWind'  onclick='UpdatePoint(this)'>" +
+            '<img src="image/逆風殿.png" alt="">' +
+            '</div>';
+
+        $("body").append(HTMLContent)
+
+        TonoCounter++;
+    }
+
+    function CreatePogTono() {
+        var HTMLContent =
+            "<div id='Tono" + TonoCounter + "' class='Pog Tono' data-type='Pog'  onclick='UpdatePoint(this)'>" +
+            '<img src="image/POG.png" alt="">' +
+            '</div>';
+
+        $("body").append(HTMLContent)
+
+        TonoCounter++;
+    }
+
+    function CreateObj(SelectedDiff) {
+        for (i = 0; i < data.Mode.length; i++) {
+            if (data.Mode[i].Difficulty == SelectedDiff) {
+
+                for (i_Wind = 0; i_Wind < data.Mode[i].Wind; i_Wind++) {
+                    CreateWindTono()
+                }
+
+                for (i_NonWind = 0; i_NonWind < data.Mode[i].NonWind; i_NonWind++) {
+                    CreateNonWindTono()
+                }
+
+                for (i_Pog = 0; i_Pog < data.Mode[i].Pog; i_Pog++) {
+                    CreatePogTono()
+                }
+
+
+            }
+        }
+    }
+
+
+    function ClearBoard() {
+        $(".Tono").remove();
+    }
+
+
+
+    $(document).ready(function() {
+        CreateObj("Easy");
+        animateAllDiv()
+        $("#PointDisplay").html(PointCounter)
+
+
+    });
+
+    function animateAllDiv() {
+        setTimeout(
+            function() {
+                for (k = 1; k < TonoCounter; k++) {
+                    animateDiv("Tono" + k);
+                }
+            }, 1000);
+    }
+
+    $(".diff").click(function() {
+        var SelectedDiff = $(this).html()
+
+        for (i = 0; i < data.Mode.length; i++) {
+            if (data.Mode[i].Difficulty == SelectedDiff) {
+                speedModifier = data.Mode[i].Speed
+            }
+        }
+
+        ClearBoard();
+
+        TonoCounter = 1;
+
+        PointCounter = 0;
+
+        $("#PointDisplay").html(PointCounter)
+
+        CreateObj(SelectedDiff);
+
+        animateAllDiv(SelectedDiff)
+
+
+    })
+
+    function UpdateFunction() {
+
+    }
+
+    function makeNewPosition() {
+
+        // Get viewport dimensions (remove the dimension of the div)
+        var h = $(window).height() - 150;
+        var w = $(window).width() - 50;
+
+        var nh = Math.floor(Math.random() * h) + 100;
+        var nw = Math.floor(Math.random() * w);
+
+        return [nh, nw];
+
+    }
+
+    function animateDiv(Obj) {
+        var newq = makeNewPosition();
+        var oldq = $('#' + Obj).offset();
+        var speed = calcSpeed([oldq.top, oldq.left], newq);
+
+        $('#' + Obj).animate({
+            top: newq[0],
+            left: newq[1]
+        }, speed, function() {
+
+            setTimeout(function() {
+                animateDiv(Obj);
+
+            }, 100);
+
+        });
+
+    };
+
+    function calcSpeed(prev, next) {
+
+        var x = Math.abs(prev[1] - next[1]);
+        var y = Math.abs(prev[0] - next[0]);
+
+        var greatest = x > y ? x : y;
+
+
+
+        var speed = Math.ceil(greatest / speedModifier);
+
+        return speed;
+
+    }
+</script>
+
+</html>

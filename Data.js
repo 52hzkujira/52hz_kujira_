@@ -12,6 +12,10 @@ var data = {
         { "Name": "xxxx我數學博士", "Msg": "補到300" },
         { "Name": "KT汪", "Msg": "汪！（加油）" },
         { "Name": "某人", "Msg": "小癲" },
+        { "Name": "Jacky", "Msg": "終於有得直接SC啦 希望你可以出多d goods比咁多位黑騎買到" },
+        { "Name": "Thomas", "Msg": "鯨醬加油！肝醬努力！" },
+        { "Name": "軒神清", "Msg": "辛苦晒肝醬 希望遲啲有期可以委爆~！！" },
+        { "Name": "Thomas", "Msg": "Again" },
 
     ]
 }

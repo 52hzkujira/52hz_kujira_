@@ -204,6 +204,15 @@
                         </div>
 
 
+                        <div class="row" style="height:20px"></div>
+                        <div class="row">月島クロス貼圖包第二彈</div>
+                        <div class="row">
+                            <div style="width:100%;height:30px;border: 2px solid var(--p);position: relative;padding-left: 0;">
+                                <div id="StickerProgress" style="position: absolute;background:var(--p); width: 0%;height: 100%;"></div>
+                            </div>
+                        </div>
+
+
 
                     </div>
 
@@ -265,7 +274,14 @@
     })
 
     $("#InfoBtn").click(function() {
-        $('#InfoModal').modal('toggle')
+        $('#InfoModal').modal('toggle');
+
+        $("#StickerProgress").css("width", "0%")
+        $("#StickerProgress").animate({
+            width: "30%"
+        }, 3000, function() {
+            // Animation complete.
+        });
     })
 
 

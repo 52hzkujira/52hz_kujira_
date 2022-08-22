@@ -25,6 +25,12 @@ var data = {
                 { "Name": "湯姆君", "Msg": "湯姆君的小小支持" },
                 { "Name": "星芽", "Msg": "救命我㩒咗好耐" },
                 { "Name": "伊織なお", "Msg": "-" },
+                { "Name": "Yuna", "Msg": "SC from Yuna 醬" },
+                { "Name": "水樹はやと", "Msg": "（委託偷塞錢）" },
+                { "Name": "KenN", "Msg": "（委託偷塞錢）" },
+                { "Name": "童童", "Msg": "（委託偷塞錢）" },
+                { "Name": "AbuvThesky", "Msg": "（委託偷塞錢）" },
+                { "Name": "Cleo", "Msg": "Cleo委託費+珍奶一杯" },
                 
 
     ]

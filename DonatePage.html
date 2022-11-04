@@ -199,7 +199,7 @@
                         <div class="row">月島クロス貼圖包第二彈</div>
                         <div class="row">
                             <div style="width:100%;height:30px;border: 2px solid var(--p);position: relative;padding-left: 0;">
-                                <div id="StickerProgress" style="position: absolute;background:var(--p); width: 100%;height: 100%;"></div>
+                                <div id="StickerProgress" style="position: absolute;background:var(--p); width: 0%;height: 100%;"></div>
                             </div>
                         </div>
 
@@ -269,7 +269,7 @@
 
         $("#StickerProgress").css("width", "0%")
         $("#StickerProgress").animate({
-            width: "30%"
+            width: "100%"
         }, 3000, function() {
             // Animation complete.
         });
